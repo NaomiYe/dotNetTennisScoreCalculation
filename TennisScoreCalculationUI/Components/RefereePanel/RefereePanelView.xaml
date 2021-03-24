@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="TennisScoreCalculationUI.Components.RefereePanel.RefereePanelView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TennisScoreCalculationUI.Components.RefereePanel"
+             xmlns:strings="clr-namespace:TennisScoreCalculationUI.Languages"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Background="{StaticResource Brushes.Background.SemiTransparent}">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{x:Static strings:Strings.RefereePanel}"
+                   FontSize="40" Margin="10" HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+
+        <StackPanel Grid.Row="1" Margin="0,20">
+            <Button Content="{x:Static strings:Strings.StartNewGame}"
+                Command="{Binding StartNewGame}"
+                Style="{StaticResource Style.Button.General}" Margin="10"/>
+
+            <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <TextBox Text="{Binding GameIdToLoad}" Width="50" Margin="10"
+                         VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <Button Content="{x:Static strings:Strings.LoadGameId}"
+                    Command="{Binding LoadGameById}" Margin="10"
+                    Style="{StaticResource Style.Button.General}" />
+            </WrapPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="0,20">
+            <Button Content="{x:Static strings:Strings.WonPointPlayerA}"
+                    Command="{Binding GivePointToPlayer}" CommandParameter="1" Margin="10"
+                    Style="{StaticResource Style.Button.GameCommand}"/>
+            <Button Content="{x:Static strings:Strings.WonPointPlayerB}"
+                    Command="{Binding GivePointToPlayer}" CommandParameter="2" Margin="10"
+                    Style="{StaticResource Style.Button.GameCommand}"/>
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

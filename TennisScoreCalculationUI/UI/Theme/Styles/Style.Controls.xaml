@@ -1,0 +1,205 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:TennisScoreCalculationUI.UI.Theme.Styles">
+
+    <!--TextBox-Headers-->
+    <Style TargetType="{x:Type TextBox}" x:Key="TextBox.Headers">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate >
+                    <Border 
+                        x:Name="border"
+                        MinHeight="25"
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        Margin="2"
+                        Background="{StaticResource Brushes.ScoreTable.TextboxBackground}">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"
+                            Foreground="{StaticResource Brushes.ScoreTable.Headers}"
+                            FontSize="40"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--TextBox-Players-->
+    <Style TargetType="{x:Type TextBox}" x:Key="TextBox.Players">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate >
+                    <Border 
+                        x:Name="border"
+                        MinHeight="25"
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        Margin="2"
+                        Background="{StaticResource Brushes.ScoreTable.TextboxBackground}">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"
+                            Foreground="{StaticResource Brushes.ScoreTable.PlayersNames}"
+                            FontSize="40"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--TextBox-Sets-->
+    <Style TargetType="{x:Type TextBox}" x:Key="TextBox.Sets">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate >
+                    <Border 
+                        x:Name="border"
+                        MinHeight="25"
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        Margin="2"
+                        Background="{StaticResource Brushes.ScoreTable.TextboxBackground}">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"
+                            Foreground="{StaticResource Brushes.ScoreTable.SetsScore}"
+                            FontSize="40"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--TextBox-Games-->
+    <Style TargetType="{x:Type TextBox}" x:Key="TextBox.Games">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate >
+                    <Border 
+                        x:Name="border"
+                        MinHeight="25"
+                        CornerRadius="3"
+                        BorderThickness="1"
+                        Margin="2"
+                        Background="{StaticResource Brushes.ScoreTable.TextboxBackground}">
+                        <TextBlock
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Text="{Binding Text, RelativeSource={RelativeSource TemplatedParent}}"
+                            Foreground="{StaticResource Brushes.ScoreTable.GamesScore}"
+                            FontSize="40"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--button-general-->
+    <Style TargetType="{x:Type Button}" x:Key="Style.Button.General">
+        <Setter Property="Background" Value="{StaticResource Brushes.ScoreTable.Separator}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                        <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" Margin="0,0,0,0" />
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource Brushes.Button.Enable}"/>
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource Brushes.Button.Mouseover}" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource Brushes.Button.Selected}" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="TextElement.Foreground" Value="{StaticResource Brushes.Button.Disabled}"/>
+                            <Setter Property="Background" Value="{DynamicResource Button.Disabled.Border}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--button-game command-->
+    <Style TargetType="{x:Type Button}" x:Key="Style.Button.GameCommand">
+        <Setter Property="Background" Value="{StaticResource Brushes.ScoreTable.Separator}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border CornerRadius="4" Background="{TemplateBinding Background}">
+                        <ContentPresenter x:Name="MyContentPresenter" Content="{TemplateBinding Content}" HorizontalAlignment="Center"
+                                          VerticalAlignment="Center" Margin="0,0,0,0" />
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource Brushes.Button.Enable}"/>
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+
+                        <Trigger Property="IsDefaulted" Value="true">
+                            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                        </Trigger>
+
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource Brushes.Button.Mouseover}" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource Brushes.Button.Selected}" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="TextElement.Foreground" Value="{StaticResource Brushes.Button.Disabled}"/>
+                            <Setter Property="Background" Value="{DynamicResource Button.Disabled.Border}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

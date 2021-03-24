@@ -1,0 +1,28 @@
+﻿<Window x:Class="TennisScoreCalculationUI.Components.MainWindow.MainWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TennisScoreCalculationUI.Components.MainWindow"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        mc:Ignorable="d"
+        Title="MainWindowView" Height="600" Width="1300"
+        MinHeight="600" MinWidth="1300" MaxHeight="900" MaxWidth="1950">
+    <Grid>
+        <Viewbox Stretch="Fill">
+            <Image Source="/TennisScoreCalculationUI;component/UI/Images/TennisCourt.jpg"/>
+        </Viewbox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ContentControl Grid.Column="0"
+                        prism:RegionManager.RegionName="ScoreScreenContentRegion"/>
+            <ContentControl Grid.Column="1"
+                        prism:RegionManager.RegionName="RefereePanelContentRegion"/>
+
+        </Grid>
+    </Grid>
+</Window>
